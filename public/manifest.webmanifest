@@ -1,0 +1,11 @@
+{
+  "name": "Raahi Bus Tracker",
+  "short_name": "Raahi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#22c55e",
+  "theme_color": "#22c55e",
+  "icons": [
+    {"src": "/raahi.png", "sizes": "192x192", "type": "image/png"}
+  ]
+}
