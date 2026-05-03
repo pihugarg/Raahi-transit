@@ -13,6 +13,7 @@ import Path from './pages/Path'
 import { SettingsProvider } from './context/SettingsContext'
 import Login from './pages/Login'
 import Chatbot from './components/chatbot'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App(){
   return (
@@ -31,7 +32,8 @@ export default function App(){
                 <Route path="/path" element={<Path/>}/>
               </Route>
             </Routes>
-            <Chatbot/>  
+            <Chatbot/>
+            <Analytics />
           </BusProvider>
         </SettingsProvider>
       </AuthProvider>
