@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 97df6f583bee3d24ca0a1b86840a680b9ae453e5 pihu <gargpihu9466@gmail.com> 1771002092 +0530	commit (initial): Added gitignore and removed node_modules
+97df6f583bee3d24ca0a1b86840a680b9ae453e5 0000000000000000000000000000000000000000 pihu <gargpihu9466@gmail.com> 1771002434 +0530	Branch: renamed refs/heads/main to refs/heads/main
+97df6f583bee3d24ca0a1b86840a680b9ae453e5 97df6f583bee3d24ca0a1b86840a680b9ae453e5 pihu <gargpihu9466@gmail.com> 1771002434 +0530	Branch: renamed refs/heads/main to refs/heads/main
+97df6f583bee3d24ca0a1b86840a680b9ae453e5 1787f5c1f8c1809bdbc05976faf2e157ee0ba4bd pihu <gargpihu9466@gmail.com> 1771002908 +0530	commit: Fixed leaflet types
+1787f5c1f8c1809bdbc05976faf2e157ee0ba4bd f5c2ede7e3dddc766c987a34d7c317c44a014700 pihu <gargpihu9466@gmail.com> 1771003267 +0530	commit: Removed tsc from build for deployment
