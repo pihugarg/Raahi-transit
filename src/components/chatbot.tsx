@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import Groq from 'groq-sdk'
+//import Groq from 'groq-sdk'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Message {
