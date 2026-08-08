@@ -14,24 +14,24 @@ import { SettingsProvider } from './context/SettingsContext'
 import Login from './pages/Login'
 import Chatbot from './components/chatbot'
 
-export default function App(){
+export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <SettingsProvider>
           <BusProvider>
-            <Header/>
+            <Header />
             <Routes>
-              <Route path="/login" element={<Login/>}/>
-              <Route element={<Protected/>}>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/map" element={<Suspense fallback={<div className='container'><div className='card'>Loading map…</div></div>}><MapPage/></Suspense>}/>
-                <Route path="/timeline" element={<Suspense fallback={<div className='container'><div className='card'>Loading…</div></div>}><Timeline/></Suspense>}/>
-                <Route path="/favorites" element={<Favorites/>}/>
-                <Route path="/path" element={<Path/>}/>
+              <Route path="/login" element={<Login />} />
+              <Route element={<Protected />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/map" element={<Suspense fallback={<div className='container'><div className='card'>Loading map…</div></div>}><MapPage /></Suspense>} />
+                <Route path="/timeline" element={<Suspense fallback={<div className='container'><div className='card'>Loading…</div></div>}><Timeline /></Suspense>} />
+                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/path" element={<Path />} />
               </Route>
             </Routes>
-            <Chatbot/>  
+            <Chatbot />
           </BusProvider>
         </SettingsProvider>
       </AuthProvider>

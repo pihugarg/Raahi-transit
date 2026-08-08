@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 
-export type Lang = 'en' | 'hi' | 'pa'| 'kn';
+export type Lang = 'en' | 'hi' | 'pa' | 'kn';
 export type Settings = {
   lang: Lang;
   setLang: (l: Lang) => void;
@@ -13,7 +13,7 @@ const SettingsContext = createContext<Settings | null>(null);
 
 const defaultLang: Lang = (() => {
   const raw = localStorage.getItem(KEY);
-  if (raw) { try { const s = JSON.parse(raw); if (s.lang) return s.lang as Lang; } catch {} }
+  if (raw) { try { const s = JSON.parse(raw); if (s.lang) return s.lang as Lang; } catch { } }
   const nav = navigator.language.toLowerCase();
   if (nav.startsWith('hi')) return 'hi';
   if (nav.startsWith('pa')) return 'pa';

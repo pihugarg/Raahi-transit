@@ -1,4 +1,4 @@
-import React,{useContext,useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -14,9 +14,9 @@ type CityMapProps = {
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  iconUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  shadowUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
 });
 
 function Fit({ from, to }: { from?: any; to?: any }) {
@@ -69,57 +69,57 @@ export default function CityMap({ from, to }: CityMapProps) {
   const { city, content } = useContext(BusContext)!
 
   const km =
-  from && to ? distanceKm(from, to).toFixed(2) : null
+    from && to ? distanceKm(from, to).toFixed(2) : null
 
   const etaMinutes =
-  km ? Math.round((Number(km) / 25) * 60) : null // avg bus speed 25 km/h
+    km ? Math.round((Number(km) / 25) * 60) : null // avg bus speed 25 km/h
 
 
   return (
     <div className="card" style={{ height: 560 }}>
-      <MapContainer center={city.center} zoom={city.zoom} style={{ height:'100%', width:'100%' }}>
+      <MapContainer center={city.center} zoom={city.zoom} style={{ height: '100%', width: '100%' }}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Fit from={from} to={to} />
         {from && to && (
-        <Polyline
-        positions={[
-        [from.lat, from.lng],
-        [to.lat, to.lng],
-      ]}
-      pathOptions={{ color: 'blue', weight: 5, className: '' }}
-    />
-  )}
+          <Polyline
+            positions={[
+              [from.lat, from.lng],
+              [to.lat, to.lng],
+            ]}
+            pathOptions={{ color: 'blue', weight: 5, className: '' }}
+          />
+        )}
         {from && <Marker position={[from.lat, from.lng]}><Popup> <strong> Departure </strong></Popup></Marker>}
         {to && <Marker position={[to.lat, to.lng]}><Popup><strong> Destination</strong></Popup></Marker>}
-      {!from && !to &&
-        content.stops.map(s => (
-          <Marker key={s.id} position={[s.lat, s.lng]}>
-            <Popup><strong>{s.name}</strong></Popup>
-          </Marker>
+        {!from && !to &&
+          content.stops.map(s => (
+            <Marker key={s.id} position={[s.lat, s.lng]}>
+              <Popup><strong>{s.name}</strong></Popup>
+            </Marker>
 
-          
-        ))}
+
+          ))}
 
         {/* ⏱️ Distance & ETA overlay (BOTTOM-LEFT) */}
-{from && to && km && etaMinutes && (
-  <div
-    style={{
-      position: 'absolute',
-      bottom: 16,
-      left: 16,
-      background: 'white',
-      padding: '8px 12px',
-      borderRadius: 8,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-      zIndex: 1000,
-      fontSize: 13,
-    }}
-  >
-    <div style={{ fontWeight: 700 }}>{km} km</div>
-    <div>Departure: Now</div>
-    <div>Arrival: ~{etaMinutes} min</div> 
-  </div>
-)}
+        {from && to && km && etaMinutes && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 16,
+              left: 16,
+              background: 'white',
+              padding: '8px 12px',
+              borderRadius: 8,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              zIndex: 1000,
+              fontSize: 13,
+            }}
+          >
+            <div style={{ fontWeight: 700 }}>{km} km</div>
+            <div>Departure: Now</div>
+            <div>Arrival: ~{etaMinutes} min</div>
+          </div>
+        )}
 
       </MapContainer>
     </div>
